@@ -1,0 +1,1004 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  min-height: 100vh;
+  overflow-x: hidden;
+  font-family: "Segoe UI", sans-serif;
+  background: radial-gradient(
+    circle at top,
+    #35115c 0%,
+    #180b2e 45%,
+    #080313 100%
+  );
+  color: white;
+}
+
+/* Background glow */
+.glow {
+  position: fixed;
+  width: 250px;
+  height: 250px;
+  border-radius: 50%;
+  filter: blur(80px);
+  opacity: 0.5;
+  z-index: 0;
+}
+
+.glow.one {
+  background: #ff2d95;
+  top: 5%;
+  left: 5%;
+}
+
+.glow.two {
+  background: #5b5cff;
+  bottom: 5%;
+  right: 5%;
+}
+
+/* Main container */
+.container {
+  position: relative;
+  z-index: 2;
+
+  min-height: 100vh;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  padding: 30px 15px;
+}
+
+/* Card */
+.birthday-card {
+  width: min(90%, 650px);
+  padding: 45px 35px;
+
+  text-align: center;
+
+  background: rgba(255, 255, 255, 0.08);
+  border: 1px solid rgba(255, 255, 255, 0.18);
+
+  border-radius: 30px;
+
+  backdrop-filter: blur(18px);
+  -webkit-backdrop-filter: blur(18px);
+
+  box-shadow:
+    0 25px 80px rgba(0, 0, 0, 0.45),
+    inset 0 0 30px rgba(255, 255, 255, 0.04);
+
+  animation: cardEntry 1s ease forwards;
+}
+
+@keyframes cardEntry {
+  from {
+    opacity: 0;
+    transform: translateY(50px) scale(0.9);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+}
+
+/* Small heading */
+.small-title {
+  font-size: 18px;
+  letter-spacing: 4px;
+  text-transform: uppercase;
+  color: #ffd6f4;
+
+  margin-bottom: 15px;
+}
+
+/* Main heading */
+h1 {
+  font-size: clamp(42px, 9vw, 75px);
+  line-height: 1.05;
+
+  margin-bottom: 20px;
+
+  background: linear-gradient(90deg, #ff73c6, #f3a3cf, #ffd15c, #ff73c6);
+
+  background-size: 300%;
+
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+
+  animation: gradientMove 4s linear infinite;
+}
+
+@keyframes gradientMove {
+  0% {
+    background-position: 0%;
+  }
+
+  100% {
+    background-position: 300%;
+  }
+}
+
+/* Name */
+.name {
+  font-size: clamp(28px, 6vw, 45px);
+  font-weight: 700;
+
+  color: #ffffff;
+
+  text-shadow:
+    0 0 10px #ff55b7,
+    0 0 30px #ff55b7;
+
+  margin-bottom: 20px;
+
+  animation: nameGlow 2s ease-in-out infinite alternate;
+}
+
+@keyframes nameGlow {
+  from {
+    text-shadow: 0 0 8px #ff55b7;
+  }
+
+  to {
+    text-shadow:
+      0 0 12px #ff55b7,
+      0 0 35px #ff55b7;
+  }
+}
+
+/* Message */
+.message {
+  max-width: 520px;
+  margin: auto;
+
+  color: #eee;
+  font-size: 17px;
+  line-height: 1.7;
+}
+
+/* Cake */
+.cake img {
+  width: 200px;
+  height: 180px;
+
+  margin: 40px auto 30px;
+}
+
+/* .cake-body {
+  position: absolute;
+
+  width: 150px;
+  height: 80px;
+
+  bottom: 0;
+
+  border-radius: 10px 10px 20px 20px;
+
+  background: linear-gradient(135deg, #ff76b7, #d82979);
+
+  box-shadow:
+    inset 0 -15px 0 rgba(0, 0, 0, 0.12),
+    0 15px 25px rgba(0, 0, 0, 0.3);
+} */
+
+/* .cream {
+  position: absolute;
+
+  width: 150px;
+  height: 20px;
+
+  top: 28px;
+
+  border-radius: 50%;
+
+  background: #fff;
+} */
+
+/* .candle {
+  position: absolute;
+  width: 10px;
+  height: 38px;
+  background: repeating-linear-gradient(
+    45deg,
+    #fff 0px,
+    #fff 6px,
+    #5b5cff 6px,
+    #5b5cff 12px
+  );
+  top: -10px;
+  border-radius: 5px;
+  margin-left: 300px;
+} */
+
+.candle:nth-child(1) {
+  left: 35px;
+}
+
+.candle:nth-child(2) {
+  left: 70px;
+}
+
+.candle:nth-child(3) {
+  right: 35px;
+}
+
+/* Flame */
+.flame {
+  position: absolute;
+
+  width: 15px;
+  height: 22px;
+
+  top: -32px;
+  left: -2px;
+
+  background: #ffd43b;
+
+  border-radius: 50% 50% 50% 0;
+
+  transform: rotate(-45deg);
+
+  box-shadow:
+    0 0 10px #ffd43b,
+    0 0 25px #ff8c00;
+
+  animation: flame 0.6s infinite alternate;
+}
+
+@keyframes flame {
+  from {
+    transform: rotate(-45deg) scale(1);
+  }
+
+  to {
+    transform: rotate(-45deg) scale(1.15);
+  }
+}
+
+/* Button */
+.surprise-btn {
+  border: none;
+  outline: none;
+
+  padding: 15px 30px;
+
+  border-radius: 50px;
+
+  font-size: 17px;
+  font-weight: 700;
+
+  color: white;
+
+  cursor: pointer;
+
+  background: linear-gradient(135deg, #ff3cac, #784ba0);
+
+  box-shadow: 0 10px 30px rgba(255, 60, 172, 0.35);
+
+  transition: 0.3s ease;
+}
+
+.surprise-btn:hover {
+  transform: translateY(-4px) scale(1.04);
+
+  box-shadow: 0 15px 40px rgba(255, 60, 172, 0.55);
+}
+
+.surprise-btn:active {
+  transform: scale(0.95);
+}
+
+/* Hidden message */
+.surprise {
+  max-height: 0;
+  overflow: hidden;
+
+  opacity: 0;
+
+  transition:
+    max-height 0.8s ease,
+    opacity 0.5s ease;
+
+  margin-top: 0;
+}
+
+.surprise.show {
+  max-height: 200px;
+  opacity: 1;
+  margin-top: 25px;
+}
+
+.surprise p {
+  font-size: 18px;
+  line-height: 1.7;
+  color: #ffd9ef;
+}
+
+/* Balloons */
+.balloon {
+  position: fixed;
+
+  width: 50px;
+  height: 65px;
+
+  border-radius: 50% 50% 45% 45%;
+
+  z-index: 1;
+
+  animation: balloonFloat 5s ease-in-out infinite;
+}
+
+.balloon::after {
+  content: "";
+
+  position: absolute;
+
+  width: 2px;
+  height: 80px;
+
+  background: rgba(255, 255, 255, 0.5);
+
+  left: 50%;
+  top: 62px;
+}
+
+.balloon::before {
+  content: "";
+
+  position: absolute;
+
+  width: 10px;
+  height: 10px;
+
+  background: inherit;
+
+  bottom: -4px;
+  left: 20px;
+
+  transform: rotate(45deg);
+}
+
+.balloon.one {
+  background: #ff4fa3;
+  left: 5%;
+  top: 20%;
+}
+
+.balloon.two {
+  background: #5b8cff;
+  right: 7%;
+  top: 25%;
+  animation-delay: 1s;
+}
+
+.balloon.three {
+  background: #ffd43b;
+  left: 10%;
+  bottom: 10%;
+  animation-delay: 2s;
+}
+
+.balloon.four {
+  background: #55e6c1;
+  right: 10%;
+  bottom: 15%;
+  animation-delay: 3s;
+}
+
+@keyframes balloonFloat {
+  0%,
+  100% {
+    transform: translateY(0) rotate(-4deg);
+  }
+
+  50% {
+    transform: translateY(-25px) rotate(4deg);
+  }
+}
+
+/* Confetti */
+.confetti {
+  position: fixed;
+
+  width: 9px;
+  height: 14px;
+
+  top: -20px;
+
+  z-index: 10;
+
+  pointer-events: none;
+
+  animation:
+    fall linear forwards,
+    spin 1s linear infinite;
+}
+
+@keyframes fall {
+  to {
+    transform: translateY(110vh) rotate(720deg);
+  }
+}
+
+@keyframes spin {
+  from {
+    margin-left: 0;
+  }
+
+  to {
+    margin-left: 25px;
+  }
+}
+
+/* Footer */
+.footer {
+  margin-top: 25px;
+
+  font-size: 13px;
+
+  color: rgba(255, 255, 255, 0.55);
+}
+
+/* Mobile */
+@media (max-width: 600px) {
+  .birthday-card {
+    padding: 35px 20px;
+    border-radius: 24px;
+  }
+
+  .small-title {
+    font-size: 13px;
+    letter-spacing: 3px;
+  }
+
+  .message {
+    font-size: 15px;
+  }
+
+  .cake {
+    transform: scale(0.85);
+    margin-top: 25px;
+    margin-bottom: 15px;
+  }
+
+  .balloon {
+    width: 35px;
+    height: 48px;
+  }
+
+  .balloon::after {
+    height: 55px;
+    top: 45px;
+  }
+
+  .balloon::before {
+    width: 7px;
+    height: 7px;
+    left: 14px;
+  }
+
+  .surprise-btn {
+    width: 100%;
+    max-width: 280px;
+  }
+}
+
+/* =========================================
+   GIFT OPENING SCREEN
+========================================= */
+
+.gift-screen {
+  position: fixed;
+  inset: 0;
+
+  z-index: 9999;
+
+  display: flex;
+  flex-direction: column;
+
+  justify-content: center;
+  align-items: center;
+
+  background: radial-gradient(
+    circle at center,
+    #3b125c 0%,
+    #170625 45%,
+    #07010d 100%
+  );
+
+  transition:
+    opacity 1s ease,
+    visibility 1s ease;
+}
+
+/* Hide gift screen */
+
+.gift-screen.hide {
+  opacity: 0;
+  visibility: hidden;
+  pointer-events: none;
+}
+
+/* Gift title */
+
+.gift-title {
+  font-family: "Pacifico", cursive;
+
+  font-size: clamp(28px, 7vw, 55px);
+
+  color: white;
+
+  text-align: center;
+
+  margin-bottom: 55px;
+
+  padding: 0 20px;
+
+  text-shadow:
+    0 0 10px #ff4fa3,
+    0 0 30px #ff4fa3,
+    0 0 60px #ff4fa3;
+
+  animation: giftTitleGlow 2s infinite alternate;
+}
+
+@keyframes giftTitleGlow {
+  from {
+    text-shadow: 0 0 10px #ff4fa3;
+  }
+
+  to {
+    text-shadow:
+      0 0 15px #ff4fa3,
+      0 0 40px #ff4fa3;
+  }
+}
+
+/* =========================================
+   GIFT
+========================================= */
+
+.gift {
+  position: relative;
+
+  width: 190px;
+  height: 160px;
+
+  cursor: pointer;
+
+  animation: giftFloat 2s ease-in-out infinite;
+
+  filter: drop-shadow(0 20px 30px rgba(255, 50, 160, 0.4));
+}
+
+@keyframes giftFloat {
+  0%,
+  100% {
+    transform: translateY(0) rotate(0deg);
+  }
+
+  50% {
+    transform: translateY(-15px) rotate(2deg);
+  }
+}
+
+/* Box */
+
+.gift-box {
+  position: absolute;
+
+  left: 0;
+  bottom: 0;
+
+  width: 190px;
+  height: 120px;
+
+  border-radius: 8px;
+
+  background: linear-gradient(135deg, #ff3f9f, #b81772);
+
+  box-shadow: inset 0 -15px rgba(0, 0, 0, 0.18);
+}
+
+/* Vertical ribbon */
+
+.gift-box::after {
+  content: "";
+
+  position: absolute;
+
+  left: 77px;
+  top: 0;
+
+  width: 36px;
+  height: 100%;
+
+  background: linear-gradient(90deg, #ffd447, #fff09b, #e8ae19);
+}
+
+/* Gift lid */
+
+.gift-lid {
+  position: absolute;
+
+  left: -10px;
+  top: 20px;
+
+  width: 210px;
+  height: 42px;
+
+  border-radius: 8px;
+
+  background: linear-gradient(135deg, #ff61b3, #d21b7c);
+
+  z-index: 5;
+
+  transition:
+    transform 1s ease,
+    opacity 1s ease;
+}
+
+/* Lid ribbon */
+
+.gift-lid::after {
+  content: "";
+
+  position: absolute;
+
+  left: 87px;
+  top: 0;
+
+  width: 36px;
+  height: 100%;
+
+  background: linear-gradient(90deg, #ffd447, #fff09b, #e8ae19);
+}
+
+/* =========================================
+   BOW
+========================================= */
+
+.bow {
+  position: absolute;
+
+  width: 50px;
+  height: 50px;
+
+  left: 80px;
+  top: -35px;
+
+  z-index: 10;
+}
+
+.bow::before,
+.bow::after {
+  content: "";
+
+  position: absolute;
+
+  width: 48px;
+  height: 35px;
+
+  background: linear-gradient(135deg, #ffd447, #e5a915);
+
+  border-radius: 50% 50% 50% 10%;
+}
+
+.bow::before {
+  left: -32px;
+
+  transform: rotate(-25deg);
+}
+
+.bow::after {
+  right: -32px;
+
+  transform: scaleX(-1) rotate(-25deg);
+}
+
+/* =========================================
+   GIFT OPEN ANIMATION
+========================================= */
+
+.gift.open {
+  animation: giftOpen 0.8s ease forwards;
+}
+
+@keyframes giftOpen {
+  0% {
+    transform: scale(1);
+  }
+
+  50% {
+    transform: scale(1.15);
+  }
+
+  100% {
+    transform: scale(1);
+  }
+}
+
+.gift.open .gift-lid {
+  transform: translateY(-110px) rotate(-15deg);
+
+  opacity: 0;
+}
+
+/* =========================================
+   CLICK TEXT
+========================================= */
+
+.click-text {
+  margin-top: 45px;
+
+  color: #ddd;
+
+  font-size: 15px;
+
+  animation: clickPulse 1.5s infinite;
+}
+
+@keyframes clickPulse {
+  0%,
+  100% {
+    opacity: 0.4;
+  }
+
+  50% {
+    opacity: 1;
+  }
+}
+
+/* =========================================
+   BIRTHDAY PAGE
+========================================= */
+
+#birthdayPage {
+  opacity: 0;
+
+  visibility: hidden;
+
+  transform: scale(0.85);
+
+  transition:
+    opacity 1.5s ease,
+    transform 1.5s ease,
+    visibility 1.5s ease;
+}
+
+#birthdayPage.show {
+  opacity: 1;
+
+  visibility: visible;
+
+  transform: scale(1);
+}
+
+/* =========================================
+   SPARKLES
+========================================= */
+
+.sparkle {
+  position: fixed;
+
+  width: 7px;
+  height: 7px;
+
+  border-radius: 50%;
+
+  background: white;
+
+  z-index: 8000;
+
+  pointer-events: none;
+
+  box-shadow:
+    0 0 10px white,
+    0 0 25px #ff5ab5;
+
+  animation: sparkleFly 2s ease-out forwards;
+}
+
+.sparkle::before,
+.sparkle::after {
+  content: "";
+
+  position: absolute;
+
+  left: 3px;
+  top: -7px;
+
+  width: 2px;
+  height: 21px;
+
+  background: white;
+}
+
+.sparkle::after {
+  transform: rotate(90deg);
+}
+
+@keyframes sparkleFly {
+  0% {
+    opacity: 1;
+
+    transform: translate(0, 0) scale(0.3) rotate(0deg);
+  }
+
+  100% {
+    opacity: 0;
+
+    transform: translate(var(--x), var(--y)) scale(1.5) rotate(180deg);
+  }
+}
+
+/* =========================================
+   FIREWORKS
+========================================= */
+
+.firework {
+  position: fixed;
+
+  width: 5px;
+  height: 5px;
+
+  border-radius: 50%;
+
+  z-index: 7000;
+
+  pointer-events: none;
+
+  animation: explode 1.2s ease-out forwards;
+}
+
+@keyframes explode {
+  0% {
+    opacity: 1;
+
+    box-shadow: 0 0 white;
+  }
+
+  100% {
+    opacity: 0;
+
+    box-shadow:
+      0 -100px 0 2px #ff4fa3,
+      70px -70px 0 2px #ffd43b,
+      100px 0 0 2px #5b8cff,
+      70px 70px 0 2px #55e6c1,
+      0 100px 0 2px #ff4fa3,
+      -70px 70px 0 2px #ffd43b,
+      -100px 0 0 2px #5b8cff,
+      -70px -70px 0 2px #55e6c1;
+  }
+}
+
+/* =========================================
+   MOBILE
+========================================= */
+
+@media (max-width: 600px) {
+  .gift {
+    transform: scale(0.8);
+  }
+
+  .gift-title {
+    margin-bottom: 25px;
+  }
+
+  .click-text {
+    margin-top: 25px;
+  }
+}
+
+/* ------------------------------------- */
+/* =========================================
+   CURSOR CONFETTI RAIN
+========================================= */
+
+.cursor-confetti {
+  position: fixed;
+
+  width: 7px;
+  height: 11px;
+
+  pointer-events: none;
+
+  z-index: 99999;
+
+  border-radius: 2px;
+
+  animation: cursorConfettiFall 1.4s ease-out forwards;
+}
+
+@keyframes cursorConfettiFall {
+  0% {
+    opacity: 1;
+
+    transform: translate(0, 0) rotate(0deg) scale(1);
+  }
+
+  30% {
+    opacity: 1;
+  }
+
+  100% {
+    opacity: 0;
+
+    transform: translate(var(--fall-x), var(--fall-y)) rotate(var(--rotation))
+      scale(0.7);
+  }
+}
+
+/* Optional sparkle at cursor */
+
+.cursor-sparkle {
+  position: fixed;
+
+  width: 5px;
+  height: 5px;
+
+  border-radius: 50%;
+
+  background: white;
+
+  pointer-events: none;
+
+  z-index: 99998;
+
+  box-shadow:
+    0 0 8px white,
+    0 0 18px #ff4fa3;
+
+  animation: cursorSparkle 0.7s ease-out forwards;
+}
+
+@keyframes cursorSparkle {
+  0% {
+    opacity: 1;
+
+    transform: scale(0.3);
+  }
+
+  100% {
+    opacity: 0;
+
+    transform: translate(var(--sparkle-x), var(--sparkle-y)) scale(1.5);
+  }
+}
+
+/* Don't show cursor effect on touch phones */
+
+@media (hover: none) {
+  .cursor-confetti,
+  .cursor-sparkle {
+    display: none;
+  }
+}
+
+/* =========================================
+   CUSTOM BIRTHDAY CURSOR
+========================================= */
+
+body {
+  cursor:
+    url("cursor.png") 20 20,
+    auto;
+}
+
+/* Keep pointer cursor on clickable elements */
+
+button,
+.gift,
+a {
+  cursor:
+    url("cursor-pointer.png") 20 20,
+    pointer;
+}
