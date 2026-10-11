@@ -1002,3 +1002,25 @@ a {
     url("cursor-pointer.png") 20 20,
     pointer;
 }
+
+/*2*/
+
+.boogaloo-regular {
+  font-family: "Boogaloo", sans-serif;
+  font-weight: 400;
+  font-style: normal;
+}
+
+.gloria-hallelujah-regular {
+  font-family: "Gloria Hallelujah", cursive;
+  font-weight: 400;
+  font-style: normal;
+}
+
+/* surprise text */
+.playpen-sans-arabic-regular {
+  font-family: "Playpen Sans Arabic", cursive;
+  font-optical-sizing: auto;
+  font-weight: 400;
+  font-style: normal;
+}
